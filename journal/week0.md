@@ -104,7 +104,11 @@ Check your email and confirm the subscription
 aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm_config.json
 ```
 
+## Recreate napkin Deisgn
+- [Week 0 - Lucid charts Napkin diagram](https://lucid.app/lucidspark/0e244f7f-a6c8-4549-8197-525578d4a19b/edit?viewport_loc=-1241%2C-1093%2C2599%2C1416%2C0_0&invitationId=inv_74795d95-1635-4151-bd75-f8da0ba72290)
+  ![napkin](https://testksj.oss-cn-beijing.aliyuncs.com/uPic/napkin.png)
+
 ## Recreate Logical Architectural Deisgn
 
-- [Week0-Logical Architectural Deisgn](https://lucid.app/lucidspark/783e1d1a-86d3-4111-84c1-7614abd3c997/edit?viewport_loc=-680%2C-433%2C2533%2C1380%2C0_0&invitationId=inv_8a4d2325-1a3f-4078-a383-253d2d2c1616)
+- [Week 0 - Lucid Charts Logical Architectural Deisgn](https://lucid.app/lucidspark/783e1d1a-86d3-4111-84c1-7614abd3c997/edit?viewport_loc=-680%2C-433%2C2533%2C1380%2C0_0&invitationId=inv_8a4d2325-1a3f-4078-a383-253d2d2c1616)
    ![Cruddur-Logical-Diagram](https://testksj.oss-cn-beijing.aliyuncs.com/uPic/Cruddur-Logical-Diagram.png)
