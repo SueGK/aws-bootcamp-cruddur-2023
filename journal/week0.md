@@ -105,3 +105,6 @@ aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm_config.js
 ```
 
 ## Recreate Logical Architectural Deisgn
+
+- [Week0-Logical Architectural Deisgn](https://lucid.app/lucidspark/783e1d1a-86d3-4111-84c1-7614abd3c997/edit?viewport_loc=-680%2C-433%2C2533%2C1380%2C0_0&invitationId=inv_8a4d2325-1a3f-4078-a383-253d2d2c1616)
+   ![Cruddur-Logical-Diagram](https://testksj.oss-cn-beijing.aliyuncs.com/uPic/Cruddur-Logical-Diagram.png)
