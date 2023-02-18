@@ -50,5 +50,58 @@ vscode:
 
 ## Create a Budget
 
+**To create a Cost and Usage budget:** [create aws budget](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/budgets/create-budget.html)
+
+The following `create-budget` command creates a Cost and Usage budget.
+
+```bash
+aws budgets create-budget \
+    --account-id $AWS_ACCOUNT_ID \
+    --budget file://aws/json/budget.json \
+    --notifications-with-subscribers file://aws/json/budget-notifications-with-subscribers.json
+```
+
+- get account id by `AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)` and `gp env AWS_ACCOUNT_ID="xxx"`
+- ![image-20230218011148360](https://testksj.oss-cn-beijing.aliyuncs.com/uPic/image-20230218011148360.png)
+
+## Create a Billing alarm
+
+![image-20230218011603680](https://testksj.oss-cn-beijing.aliyuncs.com/uPic/image-20230218011603680.png)
+
+### Create SNS Topic
+
+- We need an SNS topic before we create an alarm.
+- The SNS topic is what will delivery us an alert when we get overbilled
+- [aws sns create-topic](https://docs.aws.amazon.com/cli/latest/reference/sns/create-topic.html)
+
+**create a SNS Topic**
+
+```
+aws sns create-topic --name billing-alarm
+```
+
+which will return a TopicARN
+
+**create a subscription supply the TopicARN and our Email**
+
+```
+aws sns subscribe \
+    --topic-arn TopicARN \
+    --protocol email \
+    --notification-endpoint your@email.com
+```
+
+Check your email and confirm the subscription
+
+#### Create Alarm
+
+- [aws cloudwatch put-metric-alarm](https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/put-metric-alarm.html)
+- [Create an Alarm via AWS CLI](https://aws.amazon.com/premiumsupport/knowledge-center/cloudwatch-estimatedcharges-alarm/)
+- We need to update the configuration json script with the TopicARN we generated earlier
+- We are just a json file because --metrics is is required for expressions and so its easier to us a JSON file.
+
+```bash
+aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm_config.json
+```
 
 ## Recreate Logical Architectural Deisgn
